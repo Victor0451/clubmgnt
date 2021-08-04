@@ -34,4 +34,4 @@ const Ficha = () => {
   );
 };
 
-export default ficha;
+export default Ficha;
