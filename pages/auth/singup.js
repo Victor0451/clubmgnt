@@ -13,7 +13,7 @@ const STATE_INICIAL = {
   contrasena: "",
 };
 
-const singup = () => {
+const Singup = () => {
   const [errorFirebase, guardarErrorFirebase] = useState(false);
 
   const { valores, errores, handleChange, handleSubmit, handleBlur } =
@@ -51,4 +51,4 @@ const singup = () => {
   );
 };
 
-export default singup;
+export default Singup;

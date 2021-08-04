@@ -11,12 +11,14 @@ const SingUp = ({
   errorFirebase,
 }) => {
   return (
-    <div className="container  col-md-6 border border-dark mt-4 p-4">
-      <h2 className=" mb-4">
-        <u>Registrar Usuario</u>
+    <div className="container bg-dark rounded-3 col-md-6 border border-dark mt-4 p-4">
+      <h2 className="mb-4 text-white">
+        <strong>
+          <u>Registrar Usuario</u>
+        </strong>
       </h2>
 
-      <div className="border border-dark p-4">
+      <div className="text-white border border-white p-4">
         <div className="row  mt-4 mb-4">
           <div className="col-md-6">
             <label className="mb-2">

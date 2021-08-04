@@ -11,9 +11,7 @@ const ListadoSocio = ({ socios, verSocio, soc, eliminarSocio }) => {
   return (
     <div className="container bg-dark  rounded-3 border border-dark mt-4 p-4">
       <h2 className="mb-4 text-white">
-        <strong>
-          <u>Listado de socios</u>
-        </strong>
+        <strong>Listado de socios</strong>
       </h2>
 
       <div className="list">
@@ -72,49 +70,54 @@ const ListadoSocio = ({ socios, verSocio, soc, eliminarSocio }) => {
               id: "Acciones",
               filterAll: true,
 
-              Cell: (row) => (
-                <div className="">
-                  <button
-                    className="btn btn-secondary btn-sm"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    onClick={() => verSocio(row.original)}
-                  >
-                    <i
-                      className="text-dark fa fa-search"
-                      aria-hidden="true"
-                    ></i>
-                  </button>
-                  <button
-                    className=" btn btn-warning btn-sm "
-                    // onClick={() => verSocio(row.original)}
-                  >
-                    <i className="fa fa-pencil" aria-hidden="true"></i>
-                  </button>
-                  <button
-                    className=" btn btn-danger btn-sm"
-                    onClick={() => eliminarSocio(row.original.nsocio)}
-                  >
-                    <i className="text-dark fa fa-trash" aria-hidden="true"></i>
-                  </button>
-                  <button
-                    className=" btn btn-info btn-sm"
-                    onClick={() => {
-                      router.push({
-                        pathname: "/socio/carnet",
-                        query: {
-                          id: row.original.id,
-                        },
-                      });
-                    }}
-                  >
-                    <i
-                      className="text-dark fa fa-address-card-o"
-                      aria-hidden="true"
-                    ></i>
-                  </button>
-                </div>
-              ),
+              Cell: function acciones(row) {
+                return (
+                  <div className="">
+                    <button
+                      className="btn btn-secondary me-1 btn-sm"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      onClick={() => verSocio(row.original)}
+                    >
+                      <i
+                        className="text-dark fa fa-search"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                    <button
+                      className=" btn btn-warning me-1 btn-sm "
+                      // onClick={() => verSocio(row.original)}
+                    >
+                      <i className="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                    <button
+                      className=" btn btn-danger me-1 btn-sm"
+                      onClick={() => eliminarSocio(row.original.nsocio)}
+                    >
+                      <i
+                        className="text-dark fa fa-trash"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                    <button
+                      className=" btn btn-info btn-sm"
+                      onClick={() => {
+                        router.push({
+                          pathname: "/socio/carnet",
+                          query: {
+                            id: row.original.id,
+                          },
+                        });
+                      }}
+                    >
+                      <i
+                        className="text-dark fa fa-address-card-o"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                  </div>
+                );
+              },
             },
           ]}
           defaultPageSize={10}

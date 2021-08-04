@@ -3,25 +3,16 @@ import Layout from "../../components/layouts/Layout";
 import { FirebaseContext } from "../../firebase";
 import Router, { useRouter } from "next/router";
 import ListadoSocio from "../../components/socio/ListadoSocios";
-import { confirmAlert } from "react-confirm-alert"; // Import
+import { confirmAlert } from "react-confirm-alert"; 
 import toastr from "toastr";
 import ErrorPage from "../../components/layouts/ErrorPage";
 
-const listado = () => {
+const Listado = () => {
   const [socios, guardarSocios] = useState(null);
   const [soc, guardarSoc] = useState({});
 
   const router = useRouter();
   const { firebase, usuario } = useContext(FirebaseContext);
-
-  const traerSocios = async () => {
-    try {
-      await firebase.db.collection("socio").onSnapshot(manejarSnapshot);
-    } catch (error) {
-      toastr.error("Ocurrio un error al traer los socios", "ATENCION");
-      console.log(error.message);
-    }
-  };
 
   const manejarSnapshot = (snapshot) => {
     const socio = snapshot.docs.map((doc) => {
@@ -76,8 +67,17 @@ const listado = () => {
   };
 
   useEffect(() => {
+    const traerSocios = async () => {
+      try {
+        await firebase.db.collection("socio").onSnapshot(manejarSnapshot);
+      } catch (error) {
+        toastr.error("Ocurrio un error al traer los socios", "ATENCION");
+        console.log(error.message);
+      }
+    };
+
     traerSocios();
-  }, []);
+  }, [firebase]);
 
   return (
     <Layout>
@@ -95,4 +95,4 @@ const listado = () => {
   );
 };
 
-export default listado;
+export default Listado;

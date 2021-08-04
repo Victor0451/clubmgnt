@@ -90,3 +90,12 @@ a {
 .list {
   background-color: white !important;
 }
+
+@media print {
+  #carnet {
+    width: 30% !important;
+    height: 10% !important ;
+    border: black !important;
+    border-style: solid !important;
+  }
+}

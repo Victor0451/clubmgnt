@@ -4,7 +4,7 @@ import Layout from "../components/layouts/Layout";
 import { FirebaseContext } from "../firebase";
 import Router from "next/router";
 
-const index = () => {
+const Index = () => {
   const { firebase, usuario } = useContext(FirebaseContext);
 
   return (
@@ -14,4 +14,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

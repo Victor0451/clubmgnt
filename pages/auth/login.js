@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import Login from "../../components/auth/Login";
+import LoginForm from "../../components/auth/Login";
 import Layout from "../../components/layouts/Layout";
 import firebase from "../../firebase/firebase";
 import useValidacion from "../../hooks/useValidacion";
@@ -12,7 +12,7 @@ const STATE_INICIAL = {
   contrasena: "",
 };
 
-const login = () => {
+const Login = () => {
   const [errorFirebase, guardarErrorFirebase] = useState(false);
 
   const { valores, errores, handleChange, handleSubmit, handleBlur } =
@@ -37,7 +37,7 @@ const login = () => {
 
   return (
     <Layout>
-      <Login
+      <LoginForm
         mail={mail}
         contrasena={contrasena}
         handleBlur={handleBlur}
@@ -50,4 +50,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const ErrorPage = () => {
   return (
@@ -14,9 +15,11 @@ const ErrorPage = () => {
           </h2>
         </div>
         <div className="col-md-12">
-          <a href="/auth/login" className="btn btn-info">
-            Iniciar Sesion
-          </a>
+          <Link passHref href="/auth/login">
+            <button type="button" className="btn btn-info">
+              Iniciar Sesion
+            </button>
+          </Link>
         </div>
       </div>
     </div>

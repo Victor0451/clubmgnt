@@ -22,7 +22,7 @@ const STATE_INICIAL = {
   categoria: "",
 };
 
-const nuevo = () => {
+const Nuevo = () => {
   const [nombreimagen, guardarNombre] = useState("");
   const [subiendo, guardarSubiendo] = useState(false);
   const [progreso, guardarProgreso] = useState(0);
@@ -158,4 +158,4 @@ const nuevo = () => {
   );
 };
 
-export default nuevo;
+export default Nuevo;

@@ -10,13 +10,15 @@ const Login = ({
   errorFirebase,
 }) => {
   return (
-    <div className="container  col-md-6 border border-dark mt-4 p-4">
-      <h2 className=" mb-4">
-        <u>Iniciar Sesion</u>
+    <div className="container bg-dark rounded-3 col-md-6 border border-dark mt-4 p-4">
+      <h2 className="mb-4 text-white">
+        <strong>
+          <u>Iniciar Sesion</u>
+        </strong>
       </h2>
 
-      <div className="border border-dark p-4">
-        <div className="row  mt-4 mb-4">
+      <div className="border border-white p-4">
+        <div className="row text-white mt-4 mb-4">
           <div className="col-md-6">
             <label className="mb-2">
               <u>Mail</u>
@@ -31,7 +33,7 @@ const Login = ({
             />
 
             {errores.mail && (
-              <div className="alert alert-danger border border-dark text-center text-uppercase">
+              <div className="mt-2 alert alert-danger border border-dark text-center text-uppercase">
                 {errores.mail}
               </div>
             )}
@@ -50,7 +52,7 @@ const Login = ({
               onChange={handleChange}
             />
             {errores.contrasena && (
-              <div className="alert alert-danger border border-dark text-center text-uppercase">
+              <div className=" mt-2 alert alert-danger border border-dark text-center text-uppercase">
                 {errores.contrasena}
               </div>
             )}

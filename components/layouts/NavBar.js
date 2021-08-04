@@ -1,26 +1,29 @@
 import React, { useContext } from "react";
 import { FirebaseContext } from "../../firebase";
+import Link from "next/link";
+import Img from "next/image";
 
 const NavBar = () => {
   const { usuario, firebase } = useContext(FirebaseContext);
 
   return (
     <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-      <a
-        href="/"
-        className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-      >
-        <span className="fs-5 d-none d-sm-inline">Menu</span>
-      </a>
+      <Link href="/">
+        <a className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span className="fs-5 d-none d-sm-inline">Menu</span>
+        </a>
+      </Link>
       <ul
         className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
         id="menu"
       >
         <li className="nav-item">
-          <a href="#" className="nav-link align-middle px-0">
-            <i className="fs-4 bi-house"></i>{" "}
-            <span className="ms-1 d-none d-sm-inline">Home</span>
-          </a>
+          <Link href="/">
+            <a className="nav-link align-middle px-0">
+              <i className="fs-4 bi-house"></i>{" "}
+              <span className="ms-1 d-none d-sm-inline">Home</span>
+            </a>
+          </Link>
         </li>
         <li>
           <a
@@ -31,21 +34,26 @@ const NavBar = () => {
             <i className="fs-4 bi-speedometer2"></i>{" "}
             <span className="ms-1 d-none d-sm-inline">Socios</span>{" "}
           </a>
+
           <ul
             className="collapse show nav flex-column ms-1"
             id="submenu1"
             data-bs-parent="#menu"
           >
             <li className="w-100">
-              <a href="/socio/nuevo" className="nav-link px-3">
-                <span className="d-none d-sm-inline"> Registrar Socio</span>
-              </a>
+              <Link href="/socio/nuevo">
+                <a className="nav-link px-3">
+                  <span className="d-none d-sm-inline"> Registrar Socio</span>
+                </a>
+              </Link>
             </li>
             <li>
-              <a href="/socio/listado" className="nav-link px-3">
-                {" "}
-                <span className="d-none d-sm-inline">Listado</span>{" "}
-              </a>
+              <Link href="/socio/listado">
+                <a className="nav-link px-3">
+                  {" "}
+                  <span className="d-none d-sm-inline">Listado</span>{" "}
+                </a>
+              </Link>
             </li>
           </ul>
         </li>
@@ -57,7 +65,7 @@ const NavBar = () => {
             className="nav-link px-0 align-middle"
           >
             <i className="fs-4 bi-grid"></i>{" "}
-            <span className="ms-1 d-none d-sm-inline">Products</span>{" "}
+            <span className="ms-1 d-none d-sm-inline">Pagos</span>{" "}
           </a>
           <ul
             className="collapse nav flex-column ms-1"
@@ -65,60 +73,39 @@ const NavBar = () => {
             data-bs-parent="#menu"
           >
             <li className="w-100">
-              <a href="#" className="nav-link px-3">
-                {" "}
-                <span className="d-none d-sm-inline">Product</span> 1
-              </a>
-            </li>
-            <li>
-              <a href="#" className="nav-link px-3">
-                {" "}
-                <span className="d-none d-sm-inline">Product</span> 2
-              </a>
-            </li>
-            <li>
-              <a href="#" className="nav-link px-3">
-                {" "}
-                <span className="d-none d-sm-inline">Product</span> 3
-              </a>
-            </li>
-            <li>
-              <a href="#" className="nav-link px-3">
-                {" "}
-                <span className="d-none d-sm-inline">Product</span> 4
-              </a>
+              <Link href="/pagos/nuevo">
+                <a className="nav-link px-3">
+                  {" "}
+                  <span className="d-none d-sm-inline">Registrar Pago</span>
+                </a>
+              </Link>
             </li>
           </ul>
-        </li>
-        <li>
-          <a href="#" className="nav-link px-0 align-middle">
-            <i className="fs-4 bi-people"></i>{" "}
-            <span className="ms-1 d-none d-sm-inline">Customers</span>{" "}
-          </a>
         </li>
       </ul>
       <hr />
 
       {usuario ? (
         <div className="dropdown pb-4">
-          <a
-            href="#"
-            className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-            id="dropdownUser1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              src="https://github.com/mdo.png"
-              alt="hugenerd"
-              width="30"
-              height="30"
-              className="rounded-circle"
-            />
-            <span className="d-none d-sm-inline mx-1">
-              {usuario.displayName}
-            </span>
-          </a>
+          <Link href="#">
+            <a
+              className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+              id="dropdownUser1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <Img
+                src="https://github.com/mdo.png"
+                alt="hugenerd"
+                width="30"
+                height="30"
+                className="rounded-circle"
+              />
+              <span className="d-none d-sm-inline mx-1">
+                {usuario.displayName}
+              </span>
+            </a>
+          </Link>
           <ul
             className="dropdown-menu dropdown-menu-dark text-small shadow"
             aria-labelledby="dropdownUser1"
@@ -155,9 +142,9 @@ const NavBar = () => {
         </div>
       ) : (
         <div>
-          <a className="btn btn-secondary mb-4" href="/auth/login">
-            Iniciar Sesion
-          </a>
+          <Link href="/auth/login">
+            <a className="btn btn-secondary mb-4">Iniciar Sesion</a>
+          </Link>
         </div>
       )}
     </div>

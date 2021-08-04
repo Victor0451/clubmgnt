@@ -1,5 +1,6 @@
 import React from "react";
 import FileUploader from "react-firebase-file-uploader";
+import Link from "next/link";
 
 const FormNuevoSocio = ({
   inicio,
@@ -27,12 +28,10 @@ const FormNuevoSocio = ({
   return (
     <div className="container bg-dark rounded-3 border border-dark mt-4 p-4">
       <h2 className="mb-4 text-white">
-        <strong>
-          <u>Registrar Socios</u>
-        </strong>
+        <strong>Registrar Socios</strong>
       </h2>
 
-      <div className="mt-4  rounded-3 border border-dark text-white p-4">
+      <div className="mt-4  rounded-3 border border-white text-white p-4">
         <div className="row">
           <div className="col-md-4">
             <label className="mb-2">
@@ -275,9 +274,11 @@ const FormNuevoSocio = ({
           Registrar
         </button>
 
-        <a href="/" className="btn btn-danger ">
-          Cancelar
-        </a>
+        <Link href="/" passHref>
+          <button type="button" className="btn btn-danger ">
+            Cancelar
+          </button>
+        </Link>
       </div>
     </div>
   );

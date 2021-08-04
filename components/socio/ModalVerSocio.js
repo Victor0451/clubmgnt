@@ -1,6 +1,8 @@
 import React from "react";
+import Img from "next/image";
 
 const ModalVerSocio = ({ soc }) => {
+  
   return (
     <div
       className="modal fade"
@@ -167,7 +169,7 @@ const ModalVerSocio = ({ soc }) => {
                 </div>
               </div>
 
-              {soc.url === "" ? (
+              {!soc.url ? (
                 <div className="mt-4 col-md-4">
                   <label className="mb-2">
                     <u>No tiene imagenes cargadas</u>
@@ -180,7 +182,12 @@ const ModalVerSocio = ({ soc }) => {
                       <u>Imagen</u>
                     </label>
                     <div>
-                      <img src={soc.url} className="img-soc" />
+                      <Img
+                        src={`${soc.url}`}
+                        width={300}
+                        height={300}
+                        className="img-soc"
+                      />
                     </div>
                   </div>
                 </div>
